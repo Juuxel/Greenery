@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=lower": [{ "model": "greenery:block/fireweed_bottom" }, { "model": "greenery:block/fireweed_bottom_mirrored" }],
+    "half=upper": [{ "model": "greenery:block/fireweed_top" }, { "model": "greenery:block/fireweed_top_mirrored" }]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "greenery:item/fireweed_base",
+    "layer1": "greenery:item/fireweed_flowers"
+  }
+}

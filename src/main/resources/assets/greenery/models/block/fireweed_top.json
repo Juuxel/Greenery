@@ -1,0 +1,7 @@
+{
+  "parent": "greenery:block/templates/layered_cross",
+  "textures": {
+    "cross": "greenery:block/fireweed_top_base",
+    "decoration": "greenery:block/fireweed_top_flowers"
+  }
+}
