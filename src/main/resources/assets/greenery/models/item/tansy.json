@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "greenery:block/tansy_base",
+    "layer1": "greenery:block/tansy_flowers"
+  }
+}

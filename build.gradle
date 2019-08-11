@@ -17,7 +17,7 @@ def versions = new Properties()
 versions.load file("versions.properties").newReader()
 
 dependencies {
-    //to change the versions see the gradle.properties file
+    //to change the versions see the versions.properties file
     minecraft group: "com.mojang", name: "minecraft", version: versions.minecraft
     mappings group: "net.fabricmc", name: "yarn", version: "${versions.minecraft}+${versions.mappings}"
     modImplementation group: "net.fabricmc", name: "fabric-loader", version: versions.fabric_loader
@@ -58,8 +58,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 }
 
 jar {
-    from "COPYING"
-    from "COPYING.LESSER"
+    from "COPYING", "COPYING.LESSER"
 }
 
 // configure the maven publication

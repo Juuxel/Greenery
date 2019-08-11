@@ -1,11 +1,11 @@
 {
   "required": true,
-  "package": "net.fabricmc.example.mixin",
+  "package": "juuxel.greenery.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "DefaultBiomeFeaturesMixin"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1

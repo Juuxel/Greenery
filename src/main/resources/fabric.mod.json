@@ -19,6 +19,9 @@
     "main": ["juuxel.greenery.Greenery::init"],
     "client": ["juuxel.greenery.Greenery::initClient"]
   },
+  "mixins": [
+    "mixins.greenery.json"
+  ],
 
   "depends": {
     "fabricloader": ">=0.4.0",

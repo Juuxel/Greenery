@@ -1,0 +1,7 @@
+{
+  "parent": "greenery:block/templates/layered_cross",
+  "textures": {
+    "cross": "greenery:block/tansy_base",
+    "decoration": "greenery:block/tansy_flowers"
+  }
+}
