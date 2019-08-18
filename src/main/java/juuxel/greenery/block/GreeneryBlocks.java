@@ -5,10 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.client.render.ColorProviderRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.TallFlowerBlock;
+import net.minecraft.block.*;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.world.BiomeColors;
@@ -23,13 +20,22 @@ import net.minecraft.util.registry.Registry;
 
 public final class GreeneryBlocks {
     public static final Block FIREWEED = new TallFlowerBlock(createFlowerSettings());
-    public static final Block TANSY = new BigFlowerBlock(StatusEffects.SLOW_FALLING, 3, createFlowerSettings());
+    public static final Block TANSY = new BigFlowerBlock(StatusEffects.SLOW_FALLING, 10, createFlowerSettings());
     public static final Block POTTED_TANSY = new FlowerPotBlock(TANSY, FabricBlockSettings.of(Material.PART).breakInstantly().build());
+    public static final Block ASPEN_LOG = new LogBlock(MaterialColor.BLACK, Block.Settings.copy(Blocks.OAK_LOG)); // TODO: Other stuff is nicer, remove >:(
+    public static final Block ASPEN_LEAVES = new LeavesBlock(Block.Settings.copy(Blocks.OAK_LEAVES));
+    public static final Block ASPEN_SAPLING = new SaplingBlock(AspenSaplingGenerator.INSTANCE, Block.Settings.copy(Blocks.OAK_SAPLING)) {};
 
     public static void init() {
         register("fireweed", FIREWEED, new TallBlockItem(FIREWEED, new Item.Settings().group(ItemGroup.DECORATIONS)));
         register("tansy", TANSY, new Item.Settings().group(ItemGroup.DECORATIONS));
         register("potted_tansy", POTTED_TANSY);
+        register("aspen_log", ASPEN_LOG, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+        register("aspen_leaves", ASPEN_LEAVES, new Item.Settings().group(ItemGroup.DECORATIONS));
+        register("aspen_sapling", ASPEN_SAPLING, new Item.Settings().group(ItemGroup.DECORATIONS));
+        // TODO:
+        //  - Merge with uncommited stuff at home
+        //  - Learn to commit changes :^)
     }
 
     @Environment(EnvType.CLIENT)

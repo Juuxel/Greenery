@@ -1,7 +1,9 @@
 package juuxel.greenery.feature;
 
 import juuxel.greenery.Greenery;
+import juuxel.greenery.block.AspenSaplingGenerator;
 import juuxel.greenery.block.GreeneryBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
@@ -11,9 +13,11 @@ import net.minecraft.world.gen.feature.*;
 
 public final class GreeneryFeatures {
     public static final FlowerFeature SMALL_FLOWERS = new RandomFlowerFeature(GreeneryBlocks.TANSY);
+    public static final Feature<DefaultFeatureConfig> ASPEN = AspenSaplingGenerator.INSTANCE.createTreeFeature(false);
 
     public static void init() {
         Registry.register(Registry.FEATURE, Greenery.id("small_flowers"), SMALL_FLOWERS);
+        Registry.register(Registry.FEATURE, Greenery.id("aspen"), ASPEN);
     }
 
     public static void addPlainsFeatures(Biome biome) {
@@ -28,6 +32,16 @@ public final class GreeneryFeatures {
                                         DefaultFeatureConfig.DEFAULT
                                 }
                         ),
+                        Decorator.CHANCE_TOP_SOLID_HEIGHTMAP,
+                        new ChanceDecoratorConfig(20)
+                )
+        );
+
+        // TODO: Move to a better place
+        biome.addFeature(
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                Biome.configureFeature(
+                        ASPEN, FeatureConfig.DEFAULT,
                         Decorator.CHANCE_TOP_SOLID_HEIGHTMAP,
                         new ChanceDecoratorConfig(20)
                 )
