@@ -3,7 +3,8 @@
   "package": "juuxel.greenery.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "DefaultBiomeFeaturesMixin"
+    "DefaultBiomeFeaturesMixin",
+    "ForestFlowerFeatureMixin"
   ],
   "client": [
   ],

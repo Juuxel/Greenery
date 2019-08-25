@@ -10,6 +10,10 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 minecraft {
 }
 
@@ -23,7 +27,8 @@ dependencies {
     modImplementation group: "net.fabricmc", name: "fabric-loader", version: versions.fabric_loader
 
     // Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation group: "net.fabricmc.fabric-api", name: "fabric-api", version: versions.fabric_api
+    //modImplementation group: "net.fabricmc.fabric-api", name: "fabric-api", version: versions.fabric_api
+    modImplementation group: 'com.github.FabricMC', name: 'fabric', version: versions.fabric_api_jitpack
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
