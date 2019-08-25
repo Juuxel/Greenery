@@ -13,11 +13,11 @@ import net.minecraft.world.gen.feature.*;
 
 public final class GreeneryFeatures {
     public static final FlowerFeature SMALL_FLOWERS = new RandomFlowerFeature(GreeneryBlocks.TANSY);
-    public static final Feature<DefaultFeatureConfig> ASPEN = AspenSaplingGenerator.INSTANCE.createTreeFeature(false);
+    public static final Feature<DefaultFeatureConfig> ASPEN_TREE = AspenSaplingGenerator.INSTANCE.createTreeFeature(false);
 
     public static void init() {
         Registry.register(Registry.FEATURE, Greenery.id("small_flowers"), SMALL_FLOWERS);
-        Registry.register(Registry.FEATURE, Greenery.id("aspen"), ASPEN);
+        Registry.register(Registry.FEATURE, Greenery.id("aspen_tree"), ASPEN_TREE);
     }
 
     public static void addPlainsFeatures(Biome biome) {
@@ -41,7 +41,7 @@ public final class GreeneryFeatures {
         biome.addFeature(
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 Biome.configureFeature(
-                        ASPEN, FeatureConfig.DEFAULT,
+                        ASPEN_TREE, FeatureConfig.DEFAULT,
                         Decorator.CHANCE_TOP_SOLID_HEIGHTMAP,
                         new ChanceDecoratorConfig(20)
                 )
