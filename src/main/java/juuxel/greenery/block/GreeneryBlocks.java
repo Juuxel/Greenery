@@ -22,13 +22,19 @@ public final class GreeneryBlocks {
     public static final Block FIREWEED = new TallFlowerBlock(createFlowerSettings());
     public static final Block TANSY = new BigFlowerBlock(StatusEffects.SLOW_FALLING, 10, createFlowerSettings());
     public static final Block POTTED_TANSY = new FlowerPotBlock(TANSY, FabricBlockSettings.of(Material.PART).breakInstantly().build());
-    public static final Block ASPEN_LOG = new LogBlock(MaterialColor.BLACK, Block.Settings.copy(Blocks.OAK_LOG)); // TODO: Other stuff is nicer, remove >:(
-    public static final Block ASPEN_LEAVES = new LeavesBlock(Block.Settings.copy(Blocks.OAK_LEAVES));
-    public static final Block ASPEN_SAPLING = new SaplingBlock(AspenSaplingGenerator.INSTANCE, Block.Settings.copy(Blocks.OAK_SAPLING)) {};
+    public static final Block ASPEN_LOG = new LogBlock(MaterialColor.SAND, FabricBlockSettings.of(Material.WOOD, MaterialColor.QUARTZ).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).build());
+    public static final Block ASPEN_LEAVES = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F, 0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).build());
+    public static final Block ASPEN_SAPLING = new GreenerySaplingBlock(new AspenSaplingGenerator(), FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).build());
+    // TODO: These wood variants (remember to add them to the tag)
+//    public static final Block ASPEN_WOOD = new PillarBlock();
+//    public static final Block STRIPPED_ASPEN_LOG = new PillarBlock();
+//    public static final Block STRIPPED_ASPEN_WOOD = new PillarBlock();
+    // TODO: Aspen planks + slabs, stairs, fences, gates, buttons, doors, trapdoors
+    // TODO: Potted aspen sapling
 
     public static void init() {
         register("fireweed", FIREWEED, new TallBlockItem(FIREWEED, new Item.Settings().group(ItemGroup.DECORATIONS)));
-        register("tansy", TANSY, new Item.Settings().group(ItemGroup.DECORATIONS));
+        register("tansy", TANSY, ItemGroup.DECORATIONS);
         register("potted_tansy", POTTED_TANSY);
         register("aspen_log", ASPEN_LOG, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
         register("aspen_leaves", ASPEN_LEAVES, new Item.Settings().group(ItemGroup.DECORATIONS));
@@ -36,6 +42,9 @@ public final class GreeneryBlocks {
         // TODO:
         //  - Merge with uncommited stuff at home
         //  - Learn to commit changes :^)
+        register("aspen_log", ASPEN_LOG, ItemGroup.BUILDING_BLOCKS);
+        register("aspen_leaves", ASPEN_LEAVES, ItemGroup.DECORATIONS);
+        register("aspen_sapling", ASPEN_SAPLING, ItemGroup.DECORATIONS);
     }
 
     @Environment(EnvType.CLIENT)
@@ -57,6 +66,11 @@ public final class GreeneryBlocks {
                 },
                 FIREWEED, TANSY
         );
+    }
+
+    // Registration with a default item in an item group
+    private static void register(String id, Block block, ItemGroup group) {
+        register(id, block, new Item.Settings().group(group));
     }
 
     // Registration with a default item

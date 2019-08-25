@@ -3,7 +3,6 @@ package juuxel.greenery.feature;
 import juuxel.greenery.Greenery;
 import juuxel.greenery.block.AspenSaplingGenerator;
 import juuxel.greenery.block.GreeneryBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
