@@ -36,12 +36,6 @@ public final class GreeneryBlocks {
         register("fireweed", FIREWEED, new TallBlockItem(FIREWEED, new Item.Settings().group(ItemGroup.DECORATIONS)));
         register("tansy", TANSY, ItemGroup.DECORATIONS);
         register("potted_tansy", POTTED_TANSY);
-        register("aspen_log", ASPEN_LOG, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
-        register("aspen_leaves", ASPEN_LEAVES, new Item.Settings().group(ItemGroup.DECORATIONS));
-        register("aspen_sapling", ASPEN_SAPLING, new Item.Settings().group(ItemGroup.DECORATIONS));
-        // TODO:
-        //  - Merge with uncommited stuff at home
-        //  - Learn to commit changes :^)
         register("aspen_log", ASPEN_LOG, ItemGroup.BUILDING_BLOCKS);
         register("aspen_leaves", ASPEN_LEAVES, ItemGroup.DECORATIONS);
         register("aspen_sapling", ASPEN_SAPLING, ItemGroup.DECORATIONS);
